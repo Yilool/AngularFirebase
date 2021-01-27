@@ -1,0 +1,87 @@
+<h1>
+  Titulo del Libro
+  <small> Género</small>
+</h1>
+<hr />
+<div class="row">
+  <div class="col">
+    <button class="btn btn-primary" routerLink="/biblioteca">
+      <i class="fa fa-hand-point-left"></i>
+      <b> Volver a Biblioteca</b>
+    </button>
+  </div>
+</div>
+
+<div class="row m-1">
+  <div class="col m-1">
+    <form (ngSubmit)="registrar(data)" #data="ngForm">
+      <div class="form-group m-1">
+        <input
+          class="form-control"
+          type="text"
+          disabled="disabled"
+          placeholder="FireID"
+          [(ngModel)]="libro.id"
+          name="id"
+        />
+      </div>
+      <div class="form-group m-1">
+        <input
+          class="form-control"
+          type="text"
+          required
+          placeholder="Título del Libro"
+          [(ngModel)]="libro.titulo"
+          name="titulo"
+        />
+      </div>
+      <div class="form-group m-1">
+        <input
+          class="form-control"
+          type="text"
+          required
+          placeholder="Autor del Libro"
+          [(ngModel)]="libro.autor"
+          name="autor"
+        />
+      </div>
+      <div class="form-group m-1">
+        <input
+          class="form-control"
+          type="text"
+          required
+          placeholder="Género"
+          [(ngModel)]="libro.genero"
+          name="genero"
+        />
+      </div>
+      <div class="form-group m-1">
+        <label>Prestado</label>
+        <br />
+        <button
+          *ngIf="libro.prestado"
+          (click)="libro.prestado = false"
+          type="button"
+          class="btn btn-outline-success w-100"
+        >
+          <i class="fa fa-check"></i> Prestado
+        </button>
+        <button
+          *ngIf="!libro.prestado"
+          (click)="libro.prestado = true"
+          type="button"
+          class="btn btn-outline-danger w-100"
+        >
+          <i class="fa fa-times"></i> No prestado
+        </button>
+      </div>
+      <hr />
+      <div class="form-group m-1">
+        <button class="btn btn-primary w-100" type="submit">
+          <i class="fa fa-save"></i>
+          Registrar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<h1>BiblioChat</h1>
+<hr />
+<div class="app-mensajes" id="app-mensajes">
+  <div class="text-right">
+    <span class="badge badge-primary">Yi</span>
+    <p>mensaje de chat</p>
+  </div>
+  <div>
+    <span class="badge badge-success">Chen</span>
+    <p>mensaje de chat</p>
+  </div>
+</div>
+<input
+  class="form-control"
+  type="text"
+  name="msg"
+  [(ngModel)]="msg"
+  (keyup.enter)="enviar()"
+  placeholder="Enviar mensaje..."
+/>

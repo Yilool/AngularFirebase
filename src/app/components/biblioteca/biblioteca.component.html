@@ -1,0 +1,74 @@
+<div class="container">
+  <h1 class="text-center">BiblioYilool</h1>
+  <hr />
+  <div class="row">
+    <div class="col text-end">
+      <button class="btn btn-primary m-1" routerLink="/libro/new">
+        <i class="fa fa-plus"></i>
+        <b> Registrar Libro</b>
+      </button>
+    </div>
+  </div>
+
+  <table
+    *ngIf="!cargando && biblioteca.length > 0"
+    class="table table-dark table-striped m-2"
+  >
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Título</th>
+        <th scope="col">Autor</th>
+        <th scope="col">Género</th>
+        <th scope="col">Prestado</th>
+        <th scope="col">Operacion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let libro of biblioteca; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ libro.titulo }}</td>
+        <td>{{ libro.autor }}</td>
+        <td>{{ libro.genero }}</td>
+        <td>
+          <label *ngIf="libro.prestado" class="badge bg-success"
+            >Prestado</label
+          >
+          <label *ngIf="!libro.prestado" class="badge bg-danger"
+            >No prestado</label
+          >
+        </td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-info m-1"
+            [routerLink]="['/libro', libro.id]"
+            routerLinkActive="router-link-active"
+          >
+            <i class="fa fa-pen"></i>
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger m-1"
+            (click)="borrar(libro, i)"
+          >
+            <i class="fa fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="cargando" class="alert alert-info text-center">
+    <h3 class="alert-heading">Espere por favor ...</h3>
+    <i class="fa fa-sync-alt fa-spin fa-10x"></i>
+  </div>
+
+  <div
+    *ngIf="!cargando && biblioteca.length === 0"
+    class="alert alert-warning text-center"
+  >
+    <h3 class="alert-heading">No hay registro</h3>
+    <i class="fa fa-exclamation fa-10x"></i>
+  </div>
+</div>

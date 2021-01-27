@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "angularfirebase-ba5f2": {
+      "hosting": {
+        "AngularFirebase": [
+          "angularfirebase-ba5f2"
+        ]
+      }
+    }
+  }
+}
