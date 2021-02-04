@@ -6,16 +6,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-
 import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { BibliotecaComponent } from './components/biblioteca/biblioteca.component';
 import { LibroComponent } from './components/libro/libro.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
-  declarations: [AppComponent, BibliotecaComponent, LibroComponent, ChatComponent],
+  declarations: [AppComponent, BibliotecaComponent, LibroComponent, ChatComponent, LoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
